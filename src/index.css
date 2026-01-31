@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 45 30% 96%;
+    --foreground: 160 30% 15%;
+
+    --card: 45 40% 98%;
+    --card-foreground: 160 30% 15%;
+
+    --popover: 45 40% 98%;
+    --popover-foreground: 160 30% 15%;
+
+    --primary: 160 45% 35%;
+    --primary-foreground: 45 40% 98%;
+
+    --secondary: 45 50% 88%;
+    --secondary-foreground: 160 30% 20%;
+
+    --muted: 45 30% 92%;
+    --muted-foreground: 160 20% 40%;
+
+    --accent: 35 80% 55%;
+    --accent-foreground: 160 30% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 160 20% 85%;
+    --input: 160 20% 85%;
+    --ring: 160 45% 35%;
+
+    --radius: 0.75rem;
+
+    --gold: 42 85% 55%;
+    --gold-light: 42 70% 75%;
+    --emerald: 160 45% 35%;
+    --emerald-light: 160 35% 85%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 160 30% 8%;
+    --foreground: 45 40% 95%;
+
+    --card: 160 25% 12%;
+    --card-foreground: 45 40% 95%;
+
+    --popover: 160 25% 12%;
+    --popover-foreground: 45 40% 95%;
+
+    --primary: 42 85% 55%;
+    --primary-foreground: 160 30% 10%;
+
+    --secondary: 160 25% 18%;
+    --secondary-foreground: 45 40% 90%;
+
+    --muted: 160 20% 20%;
+    --muted-foreground: 45 30% 70%;
+
+    --accent: 42 70% 50%;
+    --accent-foreground: 160 30% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 160 20% 25%;
+    --input: 160 20% 25%;
+    --ring: 42 85% 55%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans Thai', sans-serif;
+  }
+
+  .font-arabic {
+    font-family: 'Amiri', serif;
+  }
+}
+
+@layer components {
+  .islamic-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23166534' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .gradient-islamic {
+    background: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--primary)) 50%, hsl(var(--gold)) 100%);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-islamic {
+    @apply relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-lg;
+    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary) / 0.3) 100%);
+  }
+
+  .card-islamic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--gold)), hsl(var(--primary)));
+  }
+
+  .moon-glow {
+    filter: drop-shadow(0 0 20px hsl(var(--gold) / 0.5));
+  }
+
+  .star-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+}
